@@ -16,7 +16,8 @@ Shift_Bit = 0x35
 MEPW = 0x13                     #Maximum Emitting Pulse Width
 Dist1 = 0x5E                    #Distance[11:4]
 Dist2 = 0x5F                    #Distance[3:0]
-
+Dist128 = 0x01                  #Maximum display 128cm
+Dist64 = 0x02                   #Maximum display 64cm
 ############################################################
 ####################DISTANCE AND DATAREADING################
 ############################################################
@@ -36,6 +37,17 @@ def distcalc():
     Distance = S4proc
     return Distance
 
-    
+############################################################
+def maxdisplay(dis):
+    if dis == 1 or 0:
+        if dis == 1:
+            disx = Dist128
+            bus.write_byte_data(GP2Y_ID, Shift_Bit, disx)
+        else:
+            disx = Dist64
+            bus.write_byte_data(GP2Y_ID, Shift_Bit, disx)
+    else:
+        return("INVALID INPUT!, input must be either 1 or 0.")
+
 
 
