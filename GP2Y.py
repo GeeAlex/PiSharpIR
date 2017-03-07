@@ -30,11 +30,8 @@ def distcalc():
     D1 = dataread(Dist1)
     D2 = dataread(Dist2)
     SBit = dataread(Shift_Bit)
-    S1proc = (D1 * 16)
-    S2proc = (S1proc + D2)
-    S3proc = (S2proc / 16)
-    S4proc = (S3proc / math.pow(2, SBit))
-    Distance = S4proc
+    S1proc = ((((D1 * 16) + D2) / 16) / math.pow(2, SBit))
+    Distance = S1proc
     return Distance
 
 ############################################################
@@ -43,11 +40,8 @@ def maxdisplay(dis):
         if dis == 1:
             disx = Dist128
             bus.write_byte_data(GP2Y_ID, Shift_Bit, disx)
-        else:
+        elif dis == 0:
             disx = Dist64
             bus.write_byte_data(GP2Y_ID, Shift_Bit, disx)
     else:
         return("INVALID INPUT!, input must be either 1 or 0.")
-
-
-

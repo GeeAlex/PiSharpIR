@@ -1,5 +1,7 @@
-import Sensor
+import GP2Y
+import math
 while True:
-    Sensor.distcalc()
-    lk = Sensor.Distance
-    print(lk)
+    GP2Y.distcalc()
+    lk = GP2Y.Distance
+    #print(lk,"  ", end ='\r' "cm")
+    print(lk," ","cm",end ='\r')
