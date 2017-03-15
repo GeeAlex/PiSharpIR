@@ -1,4 +1,3 @@
-#PiSharpIR
 
 Python module designed to use a Sharp GP2Y0E02B I2C IR distance sensor on a Raspberry Pi.
 
